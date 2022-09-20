@@ -1,37 +1,38 @@
 import PropTypes from 'prop-types';
-import styles from '../TransactionHistory/TransactionHistory.module.css';
+import { Transaction } from '../Transaction/Transaction';
+import css from './TransactionHistory.module.css';
 
-const TransactionHistory = ({ items }) => (
-  <table className={styles['transaction-history']}>
-    <thead className={styles['transaction-head']}>
-      <tr>
-        <th className={styles['transaction-title']}>Type</th>
-        <th className={styles['transaction-title']}>Amount</th>
-        <th className={styles['transaction-title']}>Currency</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {items.map(item => (
-        <tr className={styles['transaction-row']} key={item.id}>
-          <td className={styles['transaction-cell']}>{item.type}</td>
-          <td className={styles['transaction-cell']}>{item.amount}</td>
-          <td className={styles['transaction-cell']}>{item.currency}</td>
+export const TransactionHistory = ({ items }) => {
+  return (
+    <table className={css['transaction-history']}>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Currency</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
-);
+      </thead>
+      <tbody>
+        {items.map(item => (
+          <Transaction
+            key={item.id}
+            type={item.type}
+            amount={item.amount}
+            currency={item.currency}
+          />
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
 TransactionHistory.propTypes = {
   items: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      PropTypes.exact({
+        id: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
       amount: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+    })
+  ),
 };
-
-export default TransactionHistory;

@@ -1,23 +1,18 @@
 import PropTypes from 'prop-types';
-import noAvatar from '../../images/noavatar.svg';
-import styles from '../FriendListItem/FriendListItem.module.css';
+import css from './FriendListItem.module.css';
 
-const FriendListItem = ({ avatar, name, isOnline }) => (
-  <li className={styles.item}>
-    <span className={isOnline ? styles.online : styles.offline}></span>
-    <img className={styles.avatar} src={avatar} alt={name} width="60" />
-    <p className={styles.name}>{name}</p>
-  </li>
-);
-
-FriendListItem.defaultProps = {
-  avatar: noAvatar,
+export const FriendListItem = ({ avatar, name, isOnline }) => {
+  return (
+    <li className={css.item}>
+      <span className={isOnline ? `${css.status} ${css.onLine}`: `${css.status}`}>{isOnline}</span>
+      <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
+      <p className={css.name}>{name}</p>
+    </li>
+  );
 };
 
 FriendListItem.propTypes = {
-  avatar: PropTypes.string,
+  avatar: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  isOnline: PropTypes.bool,
+  isOnline: PropTypes.bool.isRequired,
 };
-
-export default FriendListItem;

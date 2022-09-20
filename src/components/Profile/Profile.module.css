@@ -1,71 +1,64 @@
+
+
 .profile {
-  width: 300px;
-
-  margin: 15px auto;
-  border-radius: 5px;
-
-  background-color: #ffffff;
-
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 4px 4px rgb(0 0 0 / 6%),
-    1px 4px 6px rgb(0 0 0 / 16%);
-
-  overflow: hidden;
-}
-
-.description {
-  padding: 25px 0;
-  border-bottom: 1px solid #cfcfd0;
-
-  text-align: center;
+    display: block;
+    margin-right: 30px;
+    margin-left: 30px;
+    border: 1px solid #D3D3D3;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    padding: 28px 0 0 0;
+    background-color: #fff;
+    box-shadow: 10px 5px 5px #D3D3D3;
+    color: #696969;
 }
 
 .avatar {
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 25px;
-  border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    margin-bottom: 20px;
 }
 
 .name {
-  margin: 0 0 10px;
-  font-weight: 700;
-}
-
-.tag {
-  margin: 0 0 10px;
-  color: #768696;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
 }
 
 .location {
-  margin: 0;
-  color: #768696;
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .stats {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
 
-  text-align: center;
+    list-style: none;
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
 
-  background-color: #f3f6f9;
+    border-top: 1px solid #DCDCDC;
 }
 
-.item {
-  width: 33.3%;
-  padding: 15px;
-}
+.stats li {
+display: flex;
+flex-direction: column;
+padding: 10px;
+width: 50px;
+border-right: 1px solid #DCDCDC;
 
-.item:not(:last-child) {
-  border-right: 1px solid #cfcfd0;
 }
-
 .label {
-  display: block;
-  margin-bottom: 5px;
-  color: #768696;
+    font-size: 12px;
 }
 
 .quantity {
-  font-weight: 700;
+    color: #000000;
+    font-weight: bold;
+    margin-top: 5px;
 }

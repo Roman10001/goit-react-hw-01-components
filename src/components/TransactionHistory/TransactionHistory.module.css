@@ -1,51 +1,37 @@
 .transaction-history {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 15px;
-  border-radius: 5px;
+        margin-right: 30px;
+        border: 1px solid #D3D3D3;
+        border-radius: 4px;
+        font-size: 12px;
+        text-align: center;
+    
+        background-color: #fff;
+        box-shadow: 10px 5px 5px #D3D3D3;
+        color: #696969;
 
-  text-align: center;
+        text-align: center;
 
-  background-color: #ffffff;
-  color: #808184;
+        width: 100%;
 
-  box-shadow: 0px 1px 1px rgb(0 0 0 / 12%), 0px 4px 4px rgb(0 0 0 / 6%),
-    1px 4px 6px rgb(0 0 0 / 16%);
-
-  overflow: hidden;
+        border-collapse: collapse;
 }
 
-.transaction-head {
-  border: 0px solid #b5b5b5;
-
-  background-color: #00bcd5;
-  color: #ffffff;
-
-  text-transform: uppercase;
+th, td {
+    padding: 10px;
+border: 1px solid #ccc;
 }
 
-.transaction-title {
-  width: 33.3%;
-  padding: 15px 5px;
+
+
+tbody tr:nth-child(2n-1) {
+    background-color: #FFFAFA;
 }
 
-.transaction-cell {
-  padding: 15px 5px;
-
-  text-transform: capitalize;
-
-  transition: background-color 250ms linear;
-
-  cursor: pointer;
+tbody tr:nth-child(2n) {
+    background-color: #F0F8FF;
 }
 
-.transaction-cell:hover,
-.transaction-cell:focus {
-  background-color: #c9dcdf;
-  transition: background-color 250ms linear;
-}
-
-.transaction-row:nth-child(even) {
-  background-color: #ecf1f4;
+thead tr {
+    background-color: #BC8F8F;
+    color: #fff;
 }

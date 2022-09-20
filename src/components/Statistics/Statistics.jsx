@@ -1,49 +1,39 @@
 import PropTypes from 'prop-types';
-import styles from '../Statistics/Statistics.module.css';
+import css from './Statistics.module.css';
+import { getRandomHexColor } from './randomColor';
 
-function generateRandomColor() {
-  let color = '#';
-  for (let i = 0; i < 3; i++)
-    color += (
-      '0' + Math.floor((Math.random() * Math.pow(16, 2)) / 2).toString(16)
-    ).slice(-2);
-  return color;
-}
-
-const Statistics = ({ title, stats }) => (
-  <section className={styles.statistics}>
-    {title && <h2 className={styles.title}>{title}</h2>}
-
-    <ul className={styles['stat-list']}>
-      {stats.map(({ id, label, percentage }) => (
-        <li
-          className={styles.item}
-          style={{
-            backgroundColor: generateRandomColor(),
-          }}
-          key={id}
-        >
-          <span className={styles.label}>{label}</span>
-          <span className={styles.percentage}>{percentage}%</span>
-        </li>
-      ))}
-    </ul>
-  </section>
-);
-
-Statistics.defaultProps = {
-  title: '',
+export const Statistics = ({ title, stats }) => {
+  // console.log(Boolean(title))
+  return (
+    <section className={css.statistics}>
+      {title && <h2 className={css.title}>{title.toUpperCase()}</h2>}
+      <ul className={css['stat-list']}>
+        {stats.map(stat => {
+          return (
+            <li
+              className={css.item}
+              key={stat.id}
+              style={{
+                backgroundColor: getRandomHexColor(),
+              }}
+            >
+              <span className={css.label}>{stat.label}</span>
+              <span className={css.percentage}>{stat.percentage}%</span>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
 };
 
 Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.arrayOf(
-    PropTypes.shape({
+    PropTypes.exact({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    }),
-  ).isRequired,
+    })
+  ),
 };
-
-export default Statistics;
