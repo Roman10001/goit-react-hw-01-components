@@ -36,12 +36,12 @@
   }
   
   .online {
-    composes: status;
+    /* composes: status; */
     background-color: #4caf50;
   }
   
   .offline {
-    composes: status;
+    /* composes: status; */
     background-color: #f44336;
   }
   
